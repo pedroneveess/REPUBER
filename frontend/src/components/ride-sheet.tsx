@@ -12,8 +12,8 @@ type Props = {
 
 const rideOptions = [
     { icon: "car" as const, title: "UberX", subtitle: "Econômico · 4 lugares", price: "R$ 18,90" },
-    { icon: "car-sports" as const, title: "Comfort", subtitle: "Mais espaço · 4 lugares", price: "R$ 25,50" },
-    { icon: "shield-star" as const, title: "Black", subtitle: "Premium · 4 lugares", price: "R$ 42,00" },
+    { icon: "car-sport" as const, title: "Comfort", subtitle: "Mais espaço · 4 lugares", price: "R$ 25,50" },
+    { icon: "shield-checkmark" as const, title: "Black", subtitle: "Premium · 4 lugares", price: "R$ 42,00" },
 ];
 
 export default function RideSheet({ destination, distance, duration }: Props) {

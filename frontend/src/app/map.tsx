@@ -16,7 +16,7 @@ const fallbackRegion = {
 
 export default function MapScreen() {
     const mapRef = useRef<MapView>(null);
-    const [origin, setOrigin] = useState(fallbackRegion);
+    const [origin, setOrigin] = useState({ latitude: fallbackRegion.latitude, longitude: fallbackRegion.longitude });
     const [destination, setDestination] = useState({
         latitude: fallbackRegion.latitude + 0.04,
         longitude: fallbackRegion.longitude + 0.05,
