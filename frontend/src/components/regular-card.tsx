@@ -1,30 +1,43 @@
-import {View, Text, Image, StyleSheet } from "react-native"
+﻿import { Pressable, Text, Image, StyleSheet } from "react-native";
+import { Colors } from "@/global/color-variants";
 
-export default function RegularCard() {
-    return (
-        <View style={style.container}>
-            <Image style={style.cover} source={require("../assets/icons/uber-3d-icon.png")}/>
-            <Text style={style.title}>Ride</Text>
-        </View>
-    )
+type Props = {
+    title: string;
+    subtitle: string;
+    onPress?: () => void;
 };
 
-const style = StyleSheet.create({
-    container: {
-        
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#dadadaff",
-        borderStyle: "solid",
-        borderRadius: 20,
-        padding: 30,
+export default function RegularCard({ title, subtitle, onPress }: Props) {
+    return (
+        <Pressable style={styles.container} onPress={onPress}>
+            <Image style={styles.cover} source={require("../assets/icons/uber-3d-icon.png")} />
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
+        </Pressable>
+    );
+}
 
-    },
-    title: {
-        textDecorationStyle: "solid"
+const styles = StyleSheet.create({
+    container: {
+        width: 220,
+        backgroundColor: Colors.surface,
+        borderRadius: 16,
+        padding: 16,
+        gap: 6,
     },
     cover: {
-        width: 60,
-        height: 70,
+        width: 48,
+        height: 48,
+        borderRadius: 12,
+        marginBottom: 8,
     },
-})
+    title: {
+        fontSize: 15,
+        fontWeight: "700",
+        color: Colors.black,
+    },
+    subtitle: {
+        fontSize: 13,
+        color: Colors.textSecondary,
+    },
+});
