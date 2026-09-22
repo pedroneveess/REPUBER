@@ -8,6 +8,7 @@ type Props = {
     destination: string;
     distance: string;
     duration: string;
+    loading?: boolean;
 };
 
 const rideOptions = [
@@ -16,7 +17,7 @@ const rideOptions = [
     { icon: "shield-checkmark" as const, title: "Black", subtitle: "Premium · 4 lugares", price: "R$ 42,00" },
 ];
 
-export default function RideSheet({ destination, distance, duration }: Props) {
+export default function RideSheet({ destination, distance, duration, loading }: Props) {
     const [selected, setSelected] = useState(0);
     const [minimized, setMinimized] = useState(false);
 
@@ -27,7 +28,9 @@ export default function RideSheet({ destination, distance, duration }: Props) {
                 <View>
                     <Text style={styles.destination}>{destination}</Text>
                     <Text style={styles.eta}>
-                        {duration} · {distance}
+                        {loading || !duration || !distance
+                            ? "Calculando rota..."
+                            : `${duration} · ${distance}`}
                     </Text>
                 </View>
                 <Pressable style={styles.toggleButton} hitSlop={8} onPress={() => setMinimized(!minimized)}>

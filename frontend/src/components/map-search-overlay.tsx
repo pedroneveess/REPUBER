@@ -4,7 +4,7 @@ import { Colors } from "@/global/color-variants";
 
 type Props = {
     onBack: () => void;
-    destination: string;
+    destination: string | null;
 };
 
 export default function MapSearchOverlay({ onBack, destination }: Props) {
@@ -26,7 +26,9 @@ export default function MapSearchOverlay({ onBack, destination }: Props) {
                     <Ionicons name="search" size={18} color={Colors.black} />
                     <View style={styles.fieldTexts}>
                         <Text style={styles.fieldLabel}>Destino</Text>
-                        <Text style={styles.fieldValue}>{destination}</Text>
+                        <Text style={styles.fieldValue} numberOfLines={1}>
+                            {destination ?? "Toque no mapa para escolher"}
+                        </Text>
                     </View>
                 </View>
             </View>
