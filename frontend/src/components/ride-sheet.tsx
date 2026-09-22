@@ -18,6 +18,7 @@ const rideOptions = [
 
 export default function RideSheet({ destination, distance, duration }: Props) {
     const [selected, setSelected] = useState(0);
+    const [minimized, setMinimized] = useState(false);
 
     return (
         <View style={styles.container}>
@@ -29,24 +30,30 @@ export default function RideSheet({ destination, distance, duration }: Props) {
                         {duration} · {distance}
                     </Text>
                 </View>
-                <Ionicons name="chevron-forward" size={20} color={Colors.black} />
+                <Pressable style={styles.toggleButton} hitSlop={8} onPress={() => setMinimized(!minimized)}>
+                    <Ionicons name={minimized ? "chevron-up" : "chevron-down"} size={20} color={Colors.black} />
+                </Pressable>
             </View>
-            <View style={styles.options}>
-                {rideOptions.map((option, index) => (
-                    <RideOptionRow
-                        key={option.title}
-                        icon={option.icon}
-                        title={option.title}
-                        subtitle={option.subtitle}
-                        price={option.price}
-                        selected={selected === index}
-                        onPress={() => setSelected(index)}
-                    />
-                ))}
-            </View>
-            <Pressable style={styles.cta}>
-                <Text style={styles.ctaText}>Pedir {rideOptions[selected].title}</Text>
-            </Pressable>
+            {!minimized && (
+                <View>
+                    <View style={styles.options}>
+                        {rideOptions.map((option, index) => (
+                            <RideOptionRow
+                                key={option.title}
+                                icon={option.icon}
+                                title={option.title}
+                                subtitle={option.subtitle}
+                                price={option.price}
+                                selected={selected === index}
+                                onPress={() => setSelected(index)}
+                            />
+                        ))}
+                    </View>
+                    <Pressable style={styles.cta}>
+                        <Text style={styles.ctaText}>Pedir {rideOptions[selected].title}</Text>
+                    </Pressable>
+                </View>
+            )}
         </View>
     );
 }
@@ -92,6 +99,14 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: Colors.textSecondary,
         marginTop: 4,
+    },
+    toggleButton: {
+        width: 36,
+        height: 36,
+        borderRadius: 18,
+        backgroundColor: Colors.surface,
+        alignItems: "center",
+        justifyContent: "center",
     },
     options: {
         marginBottom: 10,
