@@ -74,6 +74,7 @@ export default function MapScreen() {
                 ref={mapRef}
                 style={StyleSheet.absoluteFill}
                 initialRegion={fallbackRegion}
+                mapType="standard"
                 showsUserLocation
                 showsMyLocationButton={false}
             >
