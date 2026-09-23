@@ -24,7 +24,6 @@ export default function HomePage() {
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-            <HomeHeader />
             <View style={styles.search}>
                 <SearchBar onPress={openMap} />
             </View>

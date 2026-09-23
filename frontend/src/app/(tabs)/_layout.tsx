@@ -9,25 +9,6 @@ export default function Layout() {
         headerShown: false,
         tabBarActiveTintColor: "#000000",
         tabBarInactiveTintColor: "#9a9a9a",
-        tabBarStyle: {
-            position: "absolute",
-
-            bottom: 20,
-            left: 40,
-            right: 40,
-
-            borderRadius: 20,
-            backgroundColor: "#ffffff",
-            borderTopWidth: 0,
-            elevation: 8,
-            shadowColor: "#000000",
-            shadowOpacity: 0.12,
-            shadowRadius: 10,
-            shadowOffset: { width: 0, height: 4 },
-            height: 56,
-            paddingBottom: 6,
-            paddingTop: 6,
-        },
         tabBarLabelStyle: {
             fontSize: 11,
             fontWeight: "600",
