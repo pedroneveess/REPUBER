@@ -8,10 +8,15 @@ export default function Layout() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "#000000",
-        tabBarInactiveTintColor: "#9a9a9a",
-        tabBarLabelStyle: {
-            fontSize: 11,
-            fontWeight: "600",
+
+        tabBarStyle: {
+            position: "absolute",
+
+            bottom: 20,
+            left: 40,
+            right: 40,
+
+            borderRadius: 20,
         },
       }}
     >
